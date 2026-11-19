@@ -314,7 +314,7 @@ python manage.py test
 | :---: | :---: |
 | ![Dashboard](docs/screenshots/dashboard.png) | ![ATM Simulator](docs/screenshots/atm_simulator.png) |
 
-| AI & WhatsApp Banking Assistant | Test Results |
+| AI & WhatsApp Banking Assistant | Pay & Recharge |
 | :---: | :---: |
 | ![AI & WhatsApp Assistant](docs/screenshots/ai_assistant.png) | ![Pay & Recharge](docs/screenshots/pay_&_recharge.png) |
 
