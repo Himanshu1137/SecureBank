@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+{% block head_title %}SecureBank | Smart Digital Banking{% endblock %}
+{% block content %}
+<section class="hero">
+<div class="hero-content">
+<span class="badge">✦ NEXT-GENERATION DIGITAL BANKING</span>
+<h1>Bank smarter.<br><span>Live brighter.</span></h1>
+<p>SecureBank brings everyday banking, clear financial insights and an account-aware AI assistant into one simple experience.</p>
+<div class="hero-buttons">
+<a href="{% url 'accounts:user_registration' %}" class="primary-btn">Open your account →</a>
+<a href="{% url 'accounts:user_login' %}" class="secondary-btn">Sign in</a>
+</div>
+<div class="trust">
+<span>✓ Secure sessions</span>
+<span>✓ Private AI support</span>
+<span>✓ Easy transactions</span>
+</div>
+</div>
+<div class="bank-preview">
+<div class="balance-box">
+<small>AVAILABLE BALANCE</small>
+<h2>₹ 85,420.00</h2>
+<span class="active">● ACTIVE</span>
+</div>
+<div class="bank-card">
+<h3>SecureBank</h3>
+<div class="chip"></div>
+<div class="card-number">•••• 4821</div>
+<div class="card-bottom"><span>HIMANSHU PAL</span><strong>VISA</strong></div>
+</div>
+<div class="money-grid">
+<div class="money-card"><div class="money-icon green">↗</div><small>Money received</small><strong>₹12,500</strong></div>
+<div class="money-card"><div class="money-icon blue">AI</div><small>AI assistance</small><strong>24/7 Help</strong></div>
+</div>
+</div>
+</section>
+<section class="stats">
+<div><strong>24/7</strong><span>AI Support</span></div>
+<div><strong>100%</strong><span>Secure Sessions</span></div>
+<div><strong>Fast</strong><span>Transactions</span></div>
+<div><strong>Smart</strong><span>Banking</span></div>
+</section>
+<section class="features-section" id="features">
+<div class="section-title">
+<span>WHY SECUREBANK</span>
+<h2>Everything you need,<br><b>beautifully organized</b></h2>
+<p>A professional banking interface designed for speed, clarity and confidence.</p>
+</div>
+<div class="feature-grid">
+<div class="feature-card"><div class="feature-icon blue">🔐</div><small>01 · SECURE</small><h3>Protected banking</h3><p>Secure account access and protected banking sessions.</p></div>
+<div class="feature-card"><div class="feature-icon purple">💳</div><small>02 · SIMPLE</small><h3>Easy transactions</h3><p>Deposit, withdraw and track transactions with ease.</p></div>
+<div class="feature-card"><div class="feature-icon cyan">🤖</div><small>03 · AI POWERED</small><h3>AI Assistant</h3><p>Get intelligent assistance for common banking queries.</p></div>
+<div class="feature-card"><div class="feature-icon green">📊</div><small>04 · INSIGHTS</small><h3>Clear insights</h3><p>View your financial activity in a clean dashboard.</p></div>
+</div>
+</section>
+<section class="ai-section">
+<div>
+<span class="ai-label">✦ SMART BANKING ASSISTANT</span>
+<h2>Your banking.<br><b>With an AI beside you.</b></h2>
+<p>Ask questions, understand transactions and get helpful account-related guidance through the SecureBank AI Assistant.</p>
+<a href="{% url 'ai_assistant:chat' %}" class="primary-btn">Try AI Assistant →</a>
+</div>
+<div class="ai-card">
+<div class="ai-header">
+<div class="ai-avatar">🤖</div>
+<div><strong>SecureBank AI</strong><small>● Online</small></div>
+</div>
+<div class="ai-message">Hello! How can I help you today?</div>
+<div class="ai-message user">Show me my banking options.</div>
+<div class="ai-message">Sure! I can help with transactions, deposits, withdrawals and more.</div>
+</div>
+</section>
+<section class="security" id="security">
+<div class="security-content">
+<div class="security-icon">🛡️</div>
+<div><small>YOUR SECURITY MATTERS</small><h2>Bank with confidence.</h2><p>SecureBank is designed with security, simplicity and user experience in mind.</p></div>
+<a href="{% url 'accounts:user_registration' %}" class="security-btn">Get Started →</a>
+</div>
+</section>
+{% endblock %}

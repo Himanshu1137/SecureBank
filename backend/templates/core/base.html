@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="SecureBank - Smart and secure digital banking">
+
+    <meta name="author"
+          content="SecureBank">
+
+    <title>
+        {% block head_title %}SecureBank{% endblock %}
+    </title>
+
+    <!-- Main Banking CSS -->
+    <link rel="stylesheet"
+          href="{% static 'css/banking.css' %}">
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    {% block head_extra %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    {% include 'core/navbar.html' %}
+
+
+    <!-- ================= MESSAGES ================= -->
+
+    {% include 'core/messages.html' %}
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    {% include 'core/footer.html' %}
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    {% block footer_extra %}
+    {% endblock %}
+
+</body>
+
+</html>

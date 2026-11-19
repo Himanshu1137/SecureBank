@@ -1,0 +1,128 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}Open Account — SecureBank{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+    <section class="auth-card auth-wide">
+
+        <div class="auth-brand">
+            <span class="brand-mark">₹</span>
+            <div>
+                <strong>SecureBank</strong>
+                <span>Smart digital banking</span>
+            </div>
+        </div>
+
+        <div class="eyebrow dark">GET STARTED</div>
+
+        <h1>Open your SecureBank account</h1>
+
+        <p class="muted">
+            Create your account and start managing money with a colourful,
+            secure banking dashboard.
+        </p>
+
+        {% if registration_form.non_field_errors %}
+            <div class="form-alert">
+                {% for error in registration_form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if address_form.non_field_errors %}
+            <div class="form-alert">
+                {% for error in address_form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            {% for hidden_field in registration_form.hidden_fields %}
+                {{ hidden_field }}
+            {% endfor %}
+
+            {% for hidden_field in address_form.hidden_fields %}
+                {{ hidden_field }}
+            {% endfor %}
+
+            <!-- Personal Information -->
+            <div class="form-section-title">
+                Personal information
+            </div>
+
+            <div class="form-grid">
+
+                {% for field in registration_form.visible_fields %}
+
+                    <div class="field">
+
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+
+                        {{ field }}
+
+                        {% for error in field.errors %}
+                            <small class="field-error">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- Address -->
+            <div class="form-section-title">
+                Address
+            </div>
+
+            <div class="form-grid">
+
+                {% for field in address_form.visible_fields %}
+
+                    <div class="field">
+
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+
+                        {{ field }}
+
+                        {% for error in field.errors %}
+                            <small class="field-error">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <button class="btn btn-blue btn-wide" type="submit">
+                Create SecureBank account →
+            </button>
+
+        </form>
+
+        <p class="auth-foot">
+            Already registered?
+            <a href="{% url 'accounts:user_login' %}">
+                Sign in
+            </a>
+        </p>
+
+    </section>
+</div>
+
+{% endblock %}

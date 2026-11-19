@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block head_title %}Profile & Security — SecureBank{% endblock %}
+{% block content %}
+<div class="page">
+  <div class="section-title"><div><div class="eyebrow dark">ACCOUNT</div><h2>Profile & Security</h2><p class="muted">Manage your account information and review important security details.</p></div></div>
+  <div class="profile-grid">
+    <section class="card profile-card">
+      <div class="profile-avatar">{{ request.user.first_name|default:request.user.email|first|upper }}</div>
+      <h2>{{ request.user.get_full_name|default:request.user.email }}</h2>
+      <p class="muted">{{ request.user.email }}</p>
+      <div class="detail-list">
+        <div><span>Account number</span><strong>•••• {{ account.account_no|stringformat:"s"|slice:"-4:" }}</strong></div>
+        <div><span>Account type</span><strong>{{ account.account_type.name }}</strong></div>
+        <div><span>Annual interest</span><strong>{{ account.account_type.annual_interest_rate }}%</strong></div>
+        <div><span>Available balance</span><strong>₹{{ account.balance|floatformat:2 }}</strong></div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="eyebrow dark">SECURITY CENTER</div>
+      <h3>Your account is protected</h3>
+      <div class="security-item"><span class="security-dot"></span><div><strong>Password protected</strong><p class="muted">Never share your password with anyone.</p></div></div>
+      <div class="security-item"><span class="security-dot"></span><div><strong>Session protected</strong><p class="muted">Authenticated pages require an active login.</p></div></div>
+      <div class="security-item"><span class="security-dot"></span><div><strong>Privacy-first AI</strong><p class="muted">The assistant only uses your account data inside this session.</p></div></div>
+      <div class="security-tip"><strong>Safety tip</strong><p>SecureBank will never ask you to share an OTP, password or PIN through chat.</p></div>
+    </section>
+  </div>
+  {% if address %}<section class="card address-card"><div><div class="eyebrow dark">REGISTERED ADDRESS</div><h3>{{ address.street_address }}</h3><p class="muted">{{ address.city }}, {{ address.postal_code }}, {{ address.country }}</p></div></section>{% endif %}
+</div>
+{% endblock %}

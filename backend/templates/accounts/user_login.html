@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block head_title %}Sign In — SecureBank{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <section class="auth-card">
+    <div class="auth-brand"><span class="brand-mark">₹</span><div><strong>SecureBank</strong><span>Smart digital banking</span></div></div>
+    <div class="eyebrow dark">WELCOME BACK</div>
+    <h1>Sign in to your account</h1>
+    <p class="muted">Access your balance, transactions and SecureBank AI Assistant.</p>
+    {% if form.non_field_errors %}<div class="form-alert">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</div>{% endif %}
+    <form method="post" class="auth-form">{% csrf_token %}
+      {% for hidden_field in form.hidden_fields %}{{ hidden_field }}{% endfor %}
+      {% for field in form.visible_fields %}
+      <div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<small class="field-error">{{ error }}</small>{% endfor %}</div>
+      {% endfor %}
+      <button class="btn btn-blue btn-wide" type="submit">Sign in securely →</button>
+    </form>
+    <p class="auth-foot">New to SecureBank? <a href="{% url 'accounts:user_registration' %}">Create an account</a></p>
+  </section>
+</div>
+{% endblock %}
