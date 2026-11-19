@@ -74,7 +74,6 @@ function Auth({ onAuth }) {
           <${Field} label="Email" type="email" value=${f.email} onInput=${set('email')} required />
           <${Field} label="Password" type="password" value=${f.password} onInput=${set('password')} required />
           <button class="btn" style="width:100%" disabled=${busy}>${busy ? 'Please wait…' : 'Login'}</button></form>
-          <p class="hint">Demo customer: demo@securebank.in / Demo@1234 (OTP step follows). Bank admin: admin@securebank.in / Admin@1234.</p>`
         : html`<form onSubmit=${doVerify}><p class="hint" style="margin:0 0 10px">${lo.message}</p>
           <${Field} label="6-digit OTP" inputmode="numeric" value=${lo.code} onInput=${e => setLo({ ...lo, code: e.target.value.replace(/\D/g, '').slice(0, 6) })} error=${E('code')} required />
           ${lo.dev_otp && html`<p class="hint">Demo mode: your OTP is <b>${lo.dev_otp}</b> (real SMS is used once an SMS provider is configured).</p>`}
